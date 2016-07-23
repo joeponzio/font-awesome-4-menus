@@ -149,7 +149,7 @@ class FontAwesomeFour {
         return $classes;
     }
 
-    public static register_uninstall_hook(){
+    public static function register_uninstall_hook(){
         if( current_user_can( 'delete_plugins' ) ){
             delete_option( 'n9m-font-awesome-4-menus' );
             $users_with_meta = get_users( array(

@@ -82,7 +82,7 @@ If you uninstall the plugin, Font Awesome 4 Menus cleans up after itself by remo
 == Upgrade Notice ==
 
 = 4.6.3.1 =
-We added some code optimizations, including rebuilding the navigation menu replacement entirely to take advantage of new WordPress filters and optimizing the shortcodes. Don't worry - these are non-breaking changes. We also updated the links to the Font Awesome website and CDN in the README and plugin settings. We also added a new function to fully clean up and leave no footprint if you (for some strange reason) delete this plugin.
+Code optimizations for the menu and shortcodes. (Don't worry - these are non-breaking changes.) Housekeeping in the README and plugin settings, and a new function to fully clean up and leave no footprint if you delete this plugin. No bloat here!
 
 = 4.6.3.0 =
 * Update to Font Awesome 4.6.3
