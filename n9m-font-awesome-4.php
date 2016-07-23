@@ -26,16 +26,6 @@ License: GPLv2 or later
     Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 
-if( !function_exists( 'write_log' ) ){
-    function write_log( $log ){
-        if( is_array( $log ) || is_object( $log ) ){
-            error_log( print_r( $log, true ) );
-        } else {
-            error_log( $log );
-        }
-    }
-}
-
 class FontAwesomeFour {
 
     public static $defaults = array(
@@ -245,6 +235,14 @@ class FontAwesomeFour {
                 wp_register_style( 'font-awesome-four', $settings[ 'stylesheet_location' ], array(), self::$defaults[ 'version' ], 'all' );
                 wp_enqueue_style( 'font-awesome-four' );
                 break;
+        }
+    }
+
+    protected function write_log( $log ){
+        if( is_array( $log ) || is_object( $log ) ){
+            error_log( print_r( $log, true ) );
+        } else {
+            error_log( $log );
         }
     }
     

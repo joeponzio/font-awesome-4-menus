@@ -71,7 +71,7 @@ No. On your site, Font Awesome 4 Menus will load one of four ways depending on h
 * loads the fonts from a custom url or CDN you choose, or
 * doesn't load the fonts at all if you choose this option.
 
-We use it on mobile-first responsive sites (and our own site) all the time without any noticeable performance drag.
+We use it on mobile-first responsive sites ([and our own site](https://www.newnine.com "WordPress experts Chicago")) all the time without any noticeable performance drag.
 
 = What happens to my menus if I deactivate/uninstall this? =
 
