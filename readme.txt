@@ -3,7 +3,7 @@ Contributors: New Nine
 Author URI: https://www.newnine.com
 Tags: menus, font awesome, navigation, responsive, nav menu, wp_nav_menu
 Requires at least: 3
-Tested up to: 4.5
+Tested up to: 4.5.3
 Stable tag: trunk
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -28,7 +28,7 @@ Then, activate the plugin through the 'Plugins' menu in WordPress.
 
 = Where can I find all of the available icons? =
 
-Head over to [the Font Awesome website](http://fortawesome.github.io/Font-Awesome/icons "the Font Awesome website") to find a full list of icons available. Don't forget to check out the [examples page](http://fortawesome.github.io/Font-Awesome/examples "examples page") to see how you can mix and match icons for new effects.
+Head over to [the Font Awesome website](http://fontawesome.io/icons/ "the Font Awesome website") to find a full list of icons available. Don't forget to check out the [examples page](http://fontawesome.io/examples/ "examples page") to see how you can mix and match icons for new effects.
 
 = How to I add an icon to my menu? =
 
@@ -39,10 +39,10 @@ Want to add an icon to a post or page? Use the shortcodes available:
 * Add a single home icon: [fa class="fa-home"]
 * Add a stacked Twitter icon: [fa-stack][fa class="fa-square-o fa-stack-2x"][fa class="fa-twitter fa-stack-1x"][/fa-stack]
 
-You can also use [any of the Font Awesome icons and options](http://fortawesome.github.io/Font-Awesome "any of the Font Awesome icons and options") with the i class in your theme:
+You can also use [any of the Font Awesome icons and options](http://fontawesome.io/icons/ "any of the Font Awesome icons and options") with the i class in your theme:
 
 * Add a home icon: `<i class="fa fa-home"></i>`
-* Add a home icon: `<i class="fa fa-home"></i>`
+* Add a Facebook icon: `<i class="fa fa-facebook"></i>`
 
 = How to I place the icon after my menu text? =
 
@@ -81,6 +81,9 @@ If you uninstall the plugin, Font Awesome 4 Menus cleans up after itself by remo
 
 == Upgrade Notice ==
 
+= 4.6.3.1 =
+We added some code optimizations, including rebuilding the navigation menu replacement entirely to take advantage of new WordPress filters and optimizing the shortcodes. Don't worry - these are non-breaking changes. We also updated the links to the Font Awesome website and CDN in the README and plugin settings. We also added a new function to fully clean up and leave no footprint if you (for some strange reason) delete this plugin.
+
 = 4.6.3.0 =
 * Update to Font Awesome 4.6.3
 
@@ -109,6 +112,11 @@ Update to Font Awesome 4.2 which includes another 40 icons
 This upgrade allows you to load Font Awesome from a CDN or prevent double-loading of the stylesheet. It also adds the ability to remove the space in your menus for finer style control.
 
 == Changelog ==
+
+= 4.6.3.1 =
+* Updates and optimizes the menu code and shortcodes to help speed up your site (because we love you)
+* Adds new uninstall hook to ensure no footprint left behind if you uninstall :( Font Awesome 4 Menus
+* Housekeeping on old links in the readme and settings to reflect Font Awesome's new website URL
 
 = 4.6.3.0 =
 * Update to Font Awesome 4.6.3
