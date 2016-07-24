@@ -43,11 +43,7 @@ class FontAwesomeFour {
         add_action( 'admin_notices', array( $this, 'admin_notices' ) );
         add_action( 'wp_enqueue_scripts', array( $this, 'wp_enqueue_scripts' ) );
 
-        if( $wp_version >= 4.1 ){
-            add_filter( 'nav_menu_css_class', array( $this, 'nav_menu_css_class' ), 10, 4 );
-        } else {
-            add_filter( 'nav_menu_css_class', array( $this, 'nav_menu_css_class_back_compat' ), 10, 3 );
-        }
+        add_filter( 'nav_menu_css_class', array( $this, 'nav_menu_css_class' ) );
         add_filter( 'walker_nav_menu_start_el', array( $this, 'walker_nav_menu_start_el' ), 10, 4 );
 
         add_shortcode( 'fa', array( $this, 'shortcode_icon' ) );
@@ -137,15 +133,7 @@ class FontAwesomeFour {
         }
     }
 
-    function nav_menu_css_class( $classes, $item, $args, $depth ){
-        $tmp_classes = preg_grep( '/^(fa)(-\S+)?$/i', $classes );
-        if( !empty( $tmp_classes ) ){
-            $classes = array_values( array_diff( $classes, $tmp_classes ) );
-        }
-        return $classes;
-    }
-
-    function nav_menu_css_class_back_compat( $classes, $item, $args ){
+    function nav_menu_css_class( $classes ){
         $tmp_classes = preg_grep( '/^(fa)(-\S+)?$/i', $classes );
         if( !empty( $tmp_classes ) ){
             $classes = array_values( array_diff( $classes, $tmp_classes ) );
