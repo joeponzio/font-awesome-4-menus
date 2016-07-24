@@ -3,7 +3,7 @@
 Plugin Name: Font Awesome 4 Menus
 Plugin URI: https://www.newnine.com/plugins/font-awesome-4-menus
 Description: Join the retina/responsive revolution by easily adding Font Awesome 4.6.3 icons to your WordPress menus and anywhere else on your site! No programming necessary.
-Version: 4.6.3.1
+Version: 4.6.3.2
 Author: New Nine Media
 Author URI: https://www.newnine.com
 License: GPLv2 or later
@@ -36,12 +36,18 @@ class FontAwesomeFour {
     );
 
     function __construct(){
+        global $wp_version;
+
         add_action( 'admin_enqueue_scripts', array( $this, 'admin_enqueue_scripts' ) );
         add_action( 'admin_menu', array( $this, 'admin_menu' ) );
         add_action( 'admin_notices', array( $this, 'admin_notices' ) );
         add_action( 'wp_enqueue_scripts', array( $this, 'wp_enqueue_scripts' ) );
 
-        add_filter( 'nav_menu_css_class', array( $this, 'nav_menu_css_class' ), 10, 4 );
+        if( $wp_version >= 4.1 ){
+            add_filter( 'nav_menu_css_class', array( $this, 'nav_menu_css_class' ), 10, 4 );
+        } else {
+            add_filter( 'nav_menu_css_class', array( $this, 'nav_menu_css_class_back_compat' ), 10, 3 );
+        }
         add_filter( 'walker_nav_menu_start_el', array( $this, 'walker_nav_menu_start_el' ), 10, 4 );
 
         add_shortcode( 'fa', array( $this, 'shortcode_icon' ) );
@@ -132,6 +138,14 @@ class FontAwesomeFour {
     }
 
     function nav_menu_css_class( $classes, $item, $args, $depth ){
+        $tmp_classes = preg_grep( '/^(fa)(-\S+)?$/i', $classes );
+        if( !empty( $tmp_classes ) ){
+            $classes = array_values( array_diff( $classes, $tmp_classes ) );
+        }
+        return $classes;
+    }
+
+    function nav_menu_css_class_back_compat( $classes, $item, $args ){
         $tmp_classes = preg_grep( '/^(fa)(-\S+)?$/i', $classes );
         if( !empty( $tmp_classes ) ){
             $classes = array_values( array_diff( $classes, $tmp_classes ) );

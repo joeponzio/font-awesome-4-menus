@@ -81,6 +81,9 @@ If you uninstall the plugin, Font Awesome 4 Menus cleans up after itself by remo
 
 == Upgrade Notice ==
 
+= 4.6.3.2 =
+Fixes an error experienced by users running a version of WordPress lower than 4.1.
+
 = 4.6.3.1 =
 Code optimizations for the menu and shortcodes. (Don't worry - these are non-breaking changes.) Housekeeping in the README and plugin settings, and a new function to fully clean up and leave no footprint if you delete this plugin. No bloat here!
 
@@ -112,6 +115,9 @@ Update to Font Awesome 4.2 which includes another 40 icons
 This upgrade allows you to load Font Awesome from a CDN or prevent double-loading of the stylesheet. It also adds the ability to remove the space in your menus for finer style control.
 
 == Changelog ==
+
+= 4.6.3.2 =
+* Adds backwards compatibility for `nav_menu_css_class()` prior to WordPress 4.1
 
 = 4.6.3.1 =
 * Updates and optimizes the menu code and shortcodes to help speed up your site (because we love you)
