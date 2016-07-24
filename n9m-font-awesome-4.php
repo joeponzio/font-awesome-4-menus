@@ -252,7 +252,7 @@ class FontAwesomeFour {
         }
     }
 
-    protected function write_log( $log ){
+    public static function write_log( $log ){
         if( is_array( $log ) || is_object( $log ) ){
             error_log( print_r( $log, true ) );
         } else {
