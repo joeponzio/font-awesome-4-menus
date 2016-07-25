@@ -3,7 +3,7 @@
 Plugin Name: Font Awesome 4 Menus
 Plugin URI: https://www.newnine.com/plugins/font-awesome-4-menus
 Description: Join the retina/responsive revolution by easily adding Font Awesome 4.6.3 icons to your WordPress menus and anywhere else on your site! No programming necessary.
-Version: 4.6.3.2
+Version: 4.6.3.3
 Author: New Nine Media
 Author URI: https://www.newnine.com
 License: GPLv2 or later
@@ -134,9 +134,11 @@ class FontAwesomeFour {
     }
 
     function nav_menu_css_class( $classes ){
-        $tmp_classes = preg_grep( '/^(fa)(-\S+)?$/i', $classes );
-        if( !empty( $tmp_classes ) ){
-            $classes = array_values( array_diff( $classes, $tmp_classes ) );
+        if( is_array( $classes ) ){
+            $tmp_classes = preg_grep( '/^(fa)(-\S+)?$/i', $classes );
+            if( !empty( $tmp_classes ) ){
+                $classes = array_values( array_diff( $classes, $tmp_classes ) );
+            }
         }
         return $classes;
     }
@@ -213,9 +215,11 @@ class FontAwesomeFour {
     }
 
     function walker_nav_menu_start_el( $item_output, $item, $depth, $args ){
-        $classes = preg_grep( '/^(fa)(-\S+)?$/i', $item->classes );
-        if( !empty( $classes ) ){
-            $item_output = $this->replace_item( $item_output, $classes );
+        if( is_array( $item->classes ) ){
+            $classes = preg_grep( '/^(fa)(-\S+)?$/i', $item->classes );
+            if( !empty( $classes ) ){
+                $item_output = $this->replace_item( $item_output, $classes );
+            }
         }
         return $item_output;
     }
